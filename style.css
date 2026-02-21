@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Commissioner:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap");
 :root{
-  --bg:#0a0c14;--bg2:#0f1220;--mid:#121828;
-  --accent:#6b8fd4;--accent2:#b8d0f5;--accent3:#4d71b6;
+  --bg:#0b0a12;--bg2:#100f1a;--mid:#14122a;
+  --accent:#c9a96e;--accent2:#f5deb3;--accent3:#ab8b50;
   --text:#fff;--ts:rgba(255,255,255,.55);--tm:rgba(255,255,255,.3);
-  --brd:rgba(107,143,212,.1);--brdh:rgba(107,143,212,.3);
-  --surf:rgba(255,255,255,.03);--hbg:rgba(10,12,20,.88);
-  --fh:"Fraunces",serif;--fb:"Commissioner",system-ui,sans-serif;
-  --glow:rgba(107,143,212,.12);
+  --brd:rgba(201,169,110,.1);--brdh:rgba(201,169,110,.3);
+  --surf:rgba(255,255,255,.03);--hbg:rgba(11,10,18,.88);
+  --fh:"Playfair Display",serif;--fb:"Inter",system-ui,sans-serif;
+  --glow:rgba(201,169,110,.12);
   --grad-angle:160deg;
   --card-shadow:0 8px 32px rgba(0,0,0,.3);
 }

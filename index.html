@@ -9,145 +9,124 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
     :root {
-      --bg-dark: #0c0f18;
-      --bg-card: #151923;
-      --bg-elevated: #1c2231;
-      --text: #e2e8f0;
-      --text-dim: #94a3b8;
-      --accent: #f97316;
-      --accent-light: #fb923c;
-      --purple: #a855f7;
-      --teal: #14b8a6;
-      --border: rgba(255,255,255,0.08);
-      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --bg: #f8f9fa;
+      --bg-white: #ffffff;
+      --text: #2c3e50;
+      --text-light: #7f8c8d;
+      --yellow: #ffc107;
+      --yellow-dark: #e6ad06;
+      --border: #dee2e6;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 4px 20px rgba(0,0,0,0.12);
       --font: 'Inter', 'Segoe UI', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font); background: var(--bg-dark); color: var(--text); line-height: 1.6; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
     /* === HEADER === */
     .header {
-      background: rgba(12,15,24,0.85);
-      backdrop-filter: blur(20px);
+      background: var(--bg-white);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
     .header__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 70px;
     }
     .logo {
       font-size: 24px;
       font-weight: 800;
       color: var(--text);
       text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-    .logo .dot {
-      color: var(--accent);
     }
     .nav {
       display: flex;
-      gap: 36px;
+      gap: 32px;
     }
     .nav a {
       font-size: 14px;
       font-weight: 600;
-      color: var(--text-dim);
+      color: var(--text);
       text-decoration: none;
       transition: color 0.3s;
     }
-    .nav a:hover { color: var(--text); }
-    .header__cta {
-      padding: 10px 22px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      color: #fff;
+    .nav a:hover { color: var(--yellow); }
+    .header__contacts {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.3s;
-      box-shadow: 0 4px 16px rgba(249,115,22,0.3);
     }
-    .header__cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(249,115,22,0.4);
+    .header__phone {
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
     }
 
     /* === HERO === */
     .hero {
       position: relative;
-      padding: 100px 0 80px;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(12,15,24,0.95) 0%, rgba(28,34,49,0.9) 100%),
+      background: linear-gradient(135deg, rgba(44,62,80,0.85) 0%, rgba(44,62,80,0.75) 100%),
                   url('photo_1.jpg') center/cover no-repeat;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(249,115,22,0.15), transparent 70%);
-      top: -200px;
-      right: -100px;
-      pointer-events: none;
+      padding: 80px 0 70px;
+      color: #fff;
     }
     .hero__content {
-      max-width: 580px;
-      position: relative;
-      z-index: 2;
-    }
-    .hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 20px;
-      border-radius: 50px;
-      background: rgba(249,115,22,0.12);
-      border: 1px solid rgba(249,115,22,0.3);
-      color: var(--accent-light);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 24px;
+      max-width: 650px;
     }
     .hero__title {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      letter-spacing: -0.03em;
-    }
-    .hero__title .gradient {
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
     .hero__subtitle {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.7;
-      color: var(--text-dim);
-      margin-bottom: 32px;
+      margin-bottom: 12px;
+      opacity: 0.95;
     }
-    .hero__actions {
+    .hero__features {
       display: flex;
-      gap: 14px;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .hero__features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .hero__features li::before {
+      content: '✓';
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 12px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 14px 28px;
-      border-radius: 8px;
+      padding: 14px 32px;
+      border-radius: 6px;
       font-size: 15px;
       font-weight: 700;
       text-decoration: none;
@@ -155,430 +134,317 @@
       cursor: pointer;
       border: none;
     }
-    .btn--orange {
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(249,115,22,0.35);
-    }
-    .btn--orange:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(249,115,22,0.45);
-    }
-    .btn--outline {
-      background: transparent;
-      border: 2px solid var(--border);
+    .btn--yellow {
+      background: var(--yellow);
       color: var(--text);
+      box-shadow: 0 4px 12px rgba(255,193,7,0.3);
     }
-    .btn--outline:hover {
-      border-color: var(--accent);
-      background: rgba(249,115,22,0.08);
-    }
-
-    /* === MOCKUP === */
-    .mockup {
-      padding: 0 0 80px;
-      background: var(--bg-dark);
-    }
-    .mockup__wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-      margin-top: -60px;
-    }
-    .mockup__device {
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 4px solid var(--bg-elevated);
-    }
-    .mockup__device img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    .mockup__device--desktop {
-      flex: 0 0 580px;
-    }
-    .mockup__device--mobile {
-      flex: 0 0 240px;
-      margin-top: 50px;
+    .btn--yellow:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(255,193,7,0.4);
     }
 
-    /* === STATS === */
-    .stats {
+    /* === CATALOG === */
+    .catalog {
       padding: 70px 0;
-      background: var(--bg-card);
-    }
-    .stats__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-    .stat-item {
-      text-align: center;
-      padding: 24px;
-      border-radius: 12px;
-      background: rgba(249,115,22,0.06);
-      border: 1px solid rgba(249,115,22,0.15);
-      transition: all 0.3s;
-    }
-    .stat-item:hover {
-      transform: translateY(-6px);
-      background: rgba(249,115,22,0.1);
-      border-color: rgba(249,115,22,0.3);
-    }
-    .stat-item__value {
-      font-size: 44px;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 8px;
-    }
-    .stat-item__label {
-      font-size: 14px;
-      color: var(--text-dim);
-      font-weight: 600;
-    }
-
-    /* === FEATURES === */
-    .features {
-      padding: 80px 0;
-      background: var(--bg-dark);
+      background: var(--bg-white);
     }
     .s-title {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 48px;
     }
     .s-title__heading {
-      font-size: clamp(32px, 4vw, 46px);
-      font-weight: 800;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 900;
       line-height: 1.2;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+      margin-bottom: 12px;
     }
     .s-title__sub {
-      font-size: 17px;
-      color: var(--text-dim);
+      font-size: 15px;
+      color: var(--text-light);
     }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+    .catalog-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
-    .feature-card {
-      background: var(--bg-card);
-      padding: 36px 28px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
+    .catalog-tabs button {
+      padding: 10px 24px;
+      border-radius: 24px;
+      border: 2px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
       transition: all 0.3s;
     }
-    .feature-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-      background: var(--bg-elevated);
-      box-shadow: 0 12px 40px rgba(249,115,22,0.2);
+    .catalog-tabs button:hover,
+    .catalog-tabs button.active {
+      border-color: var(--yellow);
+      background: var(--yellow);
+      color: var(--text);
     }
-    .feature-card__icon {
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .catalog-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+      box-shadow: var(--shadow);
+    }
+    .catalog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--yellow);
+    }
+    .catalog-card__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .catalog-card__body {
+      padding: 20px;
+    }
+    .catalog-card__name {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .catalog-card__class {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: rgba(255,193,7,0.15);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .catalog-card__specs {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .catalog-card__specs li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .catalog-card__specs li::before {
+      content: '■';
+      color: var(--yellow);
+      font-size: 8px;
+    }
+    .catalog-card__price {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .catalog-card__price small {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    /* === ADVANTAGES === */
+    .advantages {
+      padding: 70px 0;
+      background: var(--bg);
+    }
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .advantage-card {
+      background: var(--bg-white);
+      padding: 28px 24px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    .advantage-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--yellow);
+    }
+    .advantage-card__icon {
       width: 64px;
       height: 64px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(249,115,22,0.2), rgba(251,146,60,0.1));
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: rgba(255,193,7,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 28px;
-      margin-bottom: 20px;
     }
-    .feature-card__title {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 12px;
+    .advantage-card__title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
-    .feature-card__desc {
-      font-size: 14px;
-      color: var(--text-dim);
-      line-height: 1.7;
+    .advantage-card__desc {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
     /* === PROCESS === */
     .process {
-      padding: 80px 0;
-      background: var(--bg-card);
+      padding: 70px 0;
+      background: var(--bg-white);
     }
-    .process-timeline {
-      max-width: 900px;
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1000px;
       margin: 0 auto;
-      position: relative;
-      padding-left: 80px;
-    }
-    .process-timeline::before {
-      content: '';
-      position: absolute;
-      left: 24px;
-      top: 30px;
-      bottom: 30px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), var(--purple));
     }
     .process-step {
       position: relative;
-      margin-bottom: 50px;
-      padding: 28px;
-      background: var(--bg-elevated);
-      border-radius: 14px;
-      border: 1px solid var(--border);
+      padding: 24px 20px;
+      background: var(--bg);
+      border-radius: 12px;
+      text-align: center;
       transition: all 0.3s;
     }
     .process-step:hover {
-      transform: translateX(8px);
-      border-color: var(--accent);
-      box-shadow: 0 8px 32px rgba(249,115,22,0.15);
+      transform: scale(1.05);
+      box-shadow: var(--shadow);
     }
-    .process-step__number {
-      position: absolute;
-      left: -56px;
-      top: 28px;
-      width: 48px;
-      height: 48px;
+    .process-step__num {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      color: #fff;
-      font-size: 20px;
-      font-weight: 800;
+      background: var(--yellow);
+      color: var(--text);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 16px rgba(249,115,22,0.4);
-      z-index: 2;
+      font-weight: 900;
+      font-size: 20px;
     }
     .process-step__title {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-    .process-step__desc {
-      font-size: 14px;
-      color: var(--text-dim);
-      line-height: 1.7;
-    }
-
-    /* === BENEFITS === */
-    .benefits {
-      padding: 80px 0;
-      background: var(--bg-dark);
-    }
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .benefits__content h3 {
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
-    .benefits__content h3 .highlight {
-      color: var(--accent);
-    }
-    .benefits__content p {
-      font-size: 16px;
-      color: var(--text-dim);
-      line-height: 1.8;
-      margin-bottom: 28px;
-    }
-    .benefits__list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .benefits__list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       font-size: 15px;
-      font-weight: 600;
-    }
-    .benefits__list li::before {
-      content: '✓';
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, var(--teal), #0d9488);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 14px;
-    }
-    .benefits__image {
-      position: relative;
-    }
-    .benefits__image img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-
-    /* === PRICING === */
-    .pricing {
-      padding: 80px 0;
-      background: var(--bg-card);
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .price-card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 38px 32px;
-      text-align: center;
-      transition: all 0.3s;
-    }
-    .price-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-      box-shadow: 0 16px 48px rgba(249,115,22,0.2);
-    }
-    .price-card--featured {
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(251,146,60,0.04));
-      position: relative;
-    }
-    .price-card--featured::before {
-      content: 'Популярный';
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 4px 16px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
-      color: #fff;
-      font-size: 12px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .price-card__name {
-      font-size: 16px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
-      margin-bottom: 16px;
-    }
-    .price-card__price {
-      font-size: 48px;
-      font-weight: 800;
       margin-bottom: 8px;
     }
-    .price-card__price .currency {
-      font-size: 24px;
-      color: var(--text-dim);
-    }
-    .price-card__desc {
-      font-size: 13px;
-      color: var(--text-dim);
-      margin-bottom: 28px;
-    }
-    .price-card__features {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 32px;
-      text-align: left;
-    }
-    .price-card__features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-    }
-    .price-card__features li::before {
-      content: '✓';
-      color: var(--teal);
-      font-weight: 900;
+    .process-step__desc {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.5;
     }
 
-    /* === CTA SECTION === */
-    .cta-section {
-      padding: 80px 0;
-      background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(168,85,247,0.08)),
-                  var(--bg-dark);
-      text-align: center;
+    /* === FAQ === */
+    .faq {
+      padding: 70px 0;
+      background: var(--bg);
     }
-    .cta-section__content {
-      max-width: 700px;
+    .faq-list {
+      max-width: 800px;
       margin: 0 auto;
     }
-    .cta-section h2 {
-      font-size: clamp(32px, 4.5vw, 52px);
-      font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.2;
+    .faq-item {
+      background: var(--bg-white);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
-    .cta-section h2 .gradient {
-      background: linear-gradient(135deg, var(--accent), var(--purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .faq-item__q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      background: none;
+      border: none;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.3s;
     }
-    .cta-section p {
-      font-size: 17px;
-      color: var(--text-dim);
-      margin-bottom: 36px;
+    .faq-item__q:hover { background: rgba(255,193,7,0.05); }
+    .faq-item__q .icon {
+      font-size: 20px;
+      transition: transform 0.3s;
+      color: var(--yellow);
+    }
+    .faq-item__q.open .icon { transform: rotate(45deg); }
+    .faq-item__a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.7;
+      padding: 0 24px;
+    }
+    .faq-item__a.open {
+      max-height: 300px;
+      padding: 0 24px 18px;
     }
 
     /* === CONTACT FORM === */
     .contact-form {
-      padding: 80px 0;
-      background: var(--bg-card);
+      padding: 70px 0;
+      background: linear-gradient(135deg, rgba(255,193,7,0.1) 0%, rgba(230,173,6,0.08) 100%);
     }
     .form-wrapper {
-      max-width: 620px;
+      max-width: 600px;
       margin: 0 auto;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
+      background: var(--bg-white);
       border-radius: 16px;
-      padding: 44px 40px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
     }
     .form-wrapper input,
     .form-wrapper textarea {
       width: 100%;
       padding: 14px 18px;
-      border: 1px solid var(--border);
+      border: 2px solid var(--border);
       border-radius: 8px;
-      background: var(--bg-dark);
+      background: var(--bg);
       color: var(--text);
       font: inherit;
       font-size: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       transition: all 0.3s;
     }
     .form-wrapper input::placeholder,
     .form-wrapper textarea::placeholder {
-      color: var(--text-dim);
+      color: var(--text-light);
     }
     .form-wrapper input:focus,
     .form-wrapper textarea:focus {
       outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+      border-color: var(--yellow);
+      background: var(--bg-white);
     }
     .form-wrapper textarea {
       resize: vertical;
-      min-height: 110px;
+      min-height: 100px;
     }
     .form-wrapper .btn {
       width: 100%;
@@ -587,50 +453,21 @@
 
     /* === FOOTER === */
     .footer {
-      background: #050609;
-      color: var(--text-dim);
-      padding: 50px 0 30px;
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 40px 0;
     }
-    .footer__grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .footer__logo {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
-      color: var(--text);
-      margin-bottom: 14px;
+      color: var(--yellow);
     }
-    .footer__desc {
-      font-size: 13px;
-      line-height: 1.7;
-    }
-    .footer__title {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .footer__links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer__links a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 13px;
-      transition: color 0.3s;
-    }
-    .footer__links a:hover {
-      color: var(--accent);
-    }
-    .footer__bottom {
-      padding-top: 30px;
-      border-top: 1px solid var(--border);
-      text-align: center;
+    .footer__copy {
       font-size: 13px;
     }
 
@@ -638,7 +475,7 @@
     .sticky-call,
     .sticky-tg {
       position: fixed;
-      right: 22px;
+      right: 20px;
       width: 56px;
       height: 56px;
       border-radius: 50%;
@@ -650,19 +487,19 @@
       font-size: 24px;
       z-index: 60;
       transition: transform 0.3s;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
     .sticky-call {
-      bottom: 92px;
+      bottom: 90px;
       background: linear-gradient(135deg, #4ade80, #22c55e);
     }
     .sticky-tg {
-      bottom: 28px;
+      bottom: 26px;
       background: linear-gradient(135deg, #38bdf8, #2563eb);
     }
     .sticky-call:hover,
     .sticky-tg:hover {
-      transform: scale(1.12);
+      transform: scale(1.1);
     }
 
     .mobile-cta {
@@ -675,10 +512,10 @@
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       padding: 12px;
-      background: rgba(12,15,24,0.95);
-      backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border);
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(10px);
+      border-top: 2px solid var(--border);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
     }
     .mobile-cta a {
       text-align: center;
@@ -690,18 +527,18 @@
     }
     .mobile-cta__call {
       color: #fff;
-      background: linear-gradient(135deg, #4ade80, #22c55e);
+      background: #22c55e;
     }
     .mobile-cta__lead {
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: var(--text);
+      background: var(--yellow);
     }
 
     /* === ANIMATIONS === */
     [data-animate] {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22,1,0.36,1);
     }
     [data-animate].animated {
       opacity: 1;
@@ -710,48 +547,27 @@
 
     /* === RESPONSIVE === */
     @media (max-width: 1024px) {
-      .mockup__wrapper {
-        flex-direction: column;
-      }
-      .mockup__device--desktop {
-        flex: 0 0 auto;
-        max-width: 500px;
-      }
-      .mockup__device--mobile {
-        margin-top: 0;
-      }
-      .features-grid {
+      .catalog-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-        margin: 0 auto;
+      .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .footer__grid {
-        grid-template-columns: 1fr 1fr;
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 700px) {
       .nav {
         display: none;
       }
-      .mockup__device--desktop {
-        max-width: 100%;
+      .header__contacts {
+        display: none;
       }
-      .stats__grid,
-      .features-grid,
-      .benefits-grid {
+      .catalog-grid,
+      .advantages-grid,
+      .process-grid {
         grid-template-columns: 1fr;
-      }
-      .process-timeline {
-        padding-left: 60px;
-      }
-      .process-step__number {
-        left: -48px;
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
       }
       .sticky-call,
       .sticky-tg {
@@ -764,13 +580,15 @@
         padding-bottom: 80px;
       }
       .hero {
-        padding: 80px 0 60px;
+        padding: 60px 0 50px;
       }
       .form-wrapper {
-        padding: 36px 24px;
+        padding: 28px 20px;
       }
-      .footer__grid {
-        grid-template-columns: 1fr;
+      .footer__inner {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
       }
     }
   </style>
@@ -1324,14 +1142,17 @@
 <!-- HEADER -->
 <header class="header">
   <div class="container header__inner">
-    <a href="#top" class="logo">Владислав<span class="dot">.</span></a>
+    <a href="#top" class="logo">Владислав</a>
     <nav class="nav">
-      <a href="#features">Возможности</a>
-      <a href="#process">Процесс</a>
-      <a href="#pricing">Тарифы</a>
+      <a href="#catalog">Автопарк</a>
+      <a href="#advantages">О компании</a>
+      <a href="#conditions">Условия</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a href="#contacts" class="header__cta">Начать →</a>
+    <div class="header__contacts">
+      <span>📍 ул. Челябова, 11, Киров</span>
+      <a href="tel:+79000000000" class="header__phone">📞 +7 (900) 000-00-00</a>
+    </div>
   </div>
 </header>
 
@@ -1351,207 +1172,212 @@
 
   <div class="container">
     <div class="hero__content" data-animate>
-      <div class="hero__badge">
-        <span>✨</span>
-        <span>Цифровая платформа для логистики</span>
-      </div>
       <h1 class="hero__title">ГРУЗОПЕРЕВОЗКИ<br>В КАЛИНИНГРАД</h1>
       <p class="hero__subtitle">Профессиональная перевозка грузов любой сложности</p>
-      <div class="hero__actions">
-        <a href="#contacts" class="btn btn--orange">Начать бесплатно</a>
-        <a href="#features" class="btn btn--outline">Узнать больше</a>
-      </div>
+      <ul class="hero__features">
+        <li>Гибкие условия, доступные тарифы и авто в отличном состоянии</li>
+        <li>Без залога, с обслуживанием и поддержкой 24/7</li>
+        <li>Выходите на линию уже сегодня!</li>
+      </ul>
+      <a href="#contacts" class="btn btn--yellow">Арендовать авто</a>
     </div>
   </div>
 </section>
 
-<!-- MOCKUP -->
-<section class="mockup">
-  <div class="container">
-    <div class="mockup__wrapper" data-animate>
-      <div class="mockup__device mockup__device--desktop">
-        <img src="photo_2.jpg" alt="Desktop dashboard">
-      </div>
-      <div class="mockup__device mockup__device--mobile">
-        <img src="photo_3.jpg" alt="Mobile app">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats">
-  <div class="container stats__grid">
-    <div class="stat-item" data-animate>
-      <div class="stat-item__value">2500+</div>
-      <div class="stat-item__label">Клиентов</div>
-    </div>
-    <div class="stat-item" data-animate>
-      <div class="stat-item__value">150К+</div>
-      <div class="stat-item__label">Перевозок в год</div>
-    </div>
-    <div class="stat-item" data-animate>
-      <div class="stat-item__value">30%</div>
-      <div class="stat-item__label">Экономия бюджета</div>
-    </div>
-    <div class="stat-item" data-animate>
-      <div class="stat-item__value">99.8%</div>
-      <div class="stat-item__label">Доставлено в срок</div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features" id="features">
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
   <div class="container">
     <div class="s-title" data-animate>
-      <h2 class="s-title__heading">Всё, что нужно для логистики</h2>
-      <p class="s-title__sub">Управляйте перевозками из единого интерфейса</p>
+      <h2 class="s-title__heading">Список автомобилей</h2>
+      <p class="s-title__sub">Выберите подходящий транспорт для вашей задачи</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card" data-animate>
-        <div class="feature-card__icon">📍</div>
-        <div class="feature-card__title">Грузоперевозки по городу</div>
-        <div class="feature-card__desc">Перевозка мебели, стройматериалов и техники. Аккуратная погрузка, фиксированные цены.</div>
+    <div class="catalog-tabs" data-animate>
+      <button class="active">Все классы</button>
+      <button>Эконом</button>
+      <button>Комфорт</button>
+      <button>Комфорт+</button>
+    </div>
+    <div class="catalog-grid">
+      <div class="catalog-card" data-animate>
+        <img src="photo_2.jpg" alt="Газель" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <div class="catalog-card__name">Газель 1.5т</div>
+          <span class="catalog-card__class">Эконом</span>
+          <ul class="catalog-card__specs">
+            <li>Максимальный грузоподъем</li>
+            <li>Разрешение на перевозку</li>
+            <li>Глобальное обслуживание</li>
+            <li>Обслуживание за счет парка</li>
+          </ul>
+          <div class="catalog-card__price">2 000 ₽ <small>/ сутки</small></div>
+          <a href="#contacts" class="btn btn--yellow">Забронировать авто</a>
+        </div>
       </div>
-      <div class="feature-card" data-animate>
-        <div class="feature-card__icon">🚛</div>
-        <div class="feature-card__title">Междугородние перевозки</div>
-        <div class="feature-card__desc">Надёжная доставка грузов по всей России. GPS-мониторинг, страхование, точные сроки.</div>
+      <div class="catalog-card" data-animate>
+        <img src="photo_3.jpg" alt="Бычок" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <div class="catalog-card__name">Бычок 3т</div>
+          <span class="catalog-card__class">Комфорт</span>
+          <ul class="catalog-card__specs">
+            <li>Максимальный грузоподъем</li>
+            <li>Разрешение на перевозку</li>
+            <li>Глобальное обслуживание</li>
+            <li>Обслуживание за счет парка</li>
+          </ul>
+          <div class="catalog-card__price">3 200 ₽ <small>/ сутки</small></div>
+          <a href="#contacts" class="btn btn--yellow">Забронировать авто</a>
+        </div>
       </div>
-      <div class="feature-card" data-animate>
-        <div class="feature-card__icon">📊</div>
-        <div class="feature-card__title">Квартирный переезд</div>
-        <div class="feature-card__desc">Переезд под ключ: упаковка, погрузка, транспортировка, сборка мебели на новом месте.</div>
+      <div class="catalog-card" data-animate>
+        <img src="photo_4.jpg" alt="5-тонник" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <div class="catalog-card__name">5-тонник</div>
+          <span class="catalog-card__class">Комфорт+</span>
+          <ul class="catalog-card__specs">
+            <li>Максимальный грузоподъем</li>
+            <li>Разрешение на перевозку</li>
+            <li>Глобальное обслуживание</li>
+            <li>Обслуживание за счет парка</li>
+          </ul>
+          <div class="catalog-card__price">4 500 ₽ <small>/ сутки</small></div>
+          <a href="#contacts" class="btn btn--yellow">Забронировать авто</a>
+        </div>
       </div>
-      <div class="feature-card" data-animate>
-        <div class="feature-card__icon">💬</div>
-        <div class="feature-card__title">Услуги грузчиков</div>
-        <div class="feature-card__desc">Опытные грузчики для погрузки и разгрузки. Бережное обращение с вещами.</div>
+      <div class="catalog-card" data-animate>
+        <img src="photo_5.jpg" alt="Фургон" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <div class="catalog-card__name">Фургон 10т</div>
+          <span class="catalog-card__class">Эконом</span>
+          <ul class="catalog-card__specs">
+            <li>Максимальный грузоподъем</li>
+            <li>Разрешение на перевозку</li>
+            <li>Глобальное обслуживание</li>
+            <li>Обслуживание за счет парка</li>
+          </ul>
+          <div class="catalog-card__price">6 000 ₽ <small>/ сутки</small></div>
+          <a href="#contacts" class="btn btn--yellow">Забронировать авто</a>
+        </div>
       </div>
-      <div class="feature-card" data-animate>
-        <div class="feature-card__icon">📄</div>
-        <div class="feature-card__title">Перевозка спецтехники</div>
-        <div class="feature-card__desc">Транспортировка оборудования, стройтехники и негабаритных грузов любой сложности.</div>
+      <div class="catalog-card" data-animate>
+        <img src="photo_1.jpg" alt="Манипулятор" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <div class="catalog-card__name">Манипулятор</div>
+          <span class="catalog-card__class">Комфорт</span>
+          <ul class="catalog-card__specs">
+            <li>Максимальный грузоподъем</li>
+            <li>Разрешение на перевозку</li>
+            <li>Глобальное обслуживание</li>
+            <li>Обслуживание за счет парка</li>
+          </ul>
+          <div class="catalog-card__price">7 500 ₽ <small>/ сутки</small></div>
+          <a href="#contacts" class="btn btn--yellow">Забронировать авто</a>
+        </div>
       </div>
-      <div class="feature-card" data-animate>
-        <div class="feature-card__icon">🔔</div>
-        <div class="feature-card__title">Офисный переезд</div>
-        <div class="feature-card__desc">Быстрый переезд офиса с минимальным простоем. Упаковка документов и оргтехники.</div>
+      <div class="catalog-card" data-animate>
+        <img src="photo_2.jpg" alt="Рефрижератор" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <div class="catalog-card__name">Рефрижератор</div>
+          <span class="catalog-card__class">Комфорт+</span>
+          <ul class="catalog-card__specs">
+            <li>Максимальный грузоподъем</li>
+            <li>Разрешение на перевозку</li>
+            <li>Глобальное обслуживание</li>
+            <li>Обслуживание за счет парка</li>
+          </ul>
+          <div class="catalog-card__price">8 000 ₽ <small>/ сутки</small></div>
+          <a href="#contacts" class="btn btn--yellow">Забронировать авто</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="advantages" id="advantages">
+  <div class="container">
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Преимущества работы с нами</h2>
+    </div>
+    <div class="advantages-grid">
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">🚚</div>
+        <div class="advantage-card__title">Современный автопарк</div>
+        <div class="advantage-card__desc">Все автомобили в отличном техническом состоянии</div>
+      </div>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">💰</div>
+        <div class="advantage-card__title">Выгодные тарифы</div>
+        <div class="advantage-card__desc">Гибкая ценовая политика и специальные предложения</div>
+      </div>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">🔧</div>
+        <div class="advantage-card__title">Полное обслуживание</div>
+        <div class="advantage-card__desc">Техническое обслуживание за наш счет</div>
+      </div>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">⏰</div>
+        <div class="advantage-card__title">Поддержка 24/7</div>
+        <div class="advantage-card__desc">Помощь в любое время дня и ночи</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="process" id="process">
+<section class="process" id="conditions">
   <div class="container">
     <div class="s-title" data-animate>
-      <h2 class="s-title__heading">Как это работает</h2>
-      <p class="s-title__sub">Простой процесс от заявки до доставки</p>
+      <h2 class="s-title__heading">Как арендовать транспорт</h2>
+      <p class="s-title__sub">Простой процесс в 4 шага</p>
     </div>
-    <div class="process-timeline">
+    <div class="process-grid">
       <div class="process-step" data-animate>
-        <div class="process-step__number">1</div>
-        <div class="process-step__title">Создайте заявку</div>
-        <div class="process-step__desc">Укажите маршрут, тип груза и параметры доставки. Система автоматически рассчитает стоимость и предложит оптимальный транспорт.</div>
+        <div class="process-step__num">1</div>
+        <div class="process-step__title">Выберите авто</div>
+        <div class="process-step__desc">Подберите подходящий транспорт из нашего каталога</div>
       </div>
       <div class="process-step" data-animate>
-        <div class="process-step__number">2</div>
-        <div class="process-step__title">Закрепите водителя</div>
-        <div class="process-step__desc">Выберите водителя из доступных или система подберёт автоматически на основе локации, рейтинга и загрузки.</div>
+        <div class="process-step__num">2</div>
+        <div class="process-step__title">Оставьте заявку</div>
+        <div class="process-step__desc">Заполните форму или позвоните нам</div>
       </div>
       <div class="process-step" data-animate>
-        <div class="process-step__number">3</div>
-        <div class="process-step__title">Отслеживайте груз</div>
-        <div class="process-step__desc">Смотрите маршрут в реальном времени, получайте уведомления о статусе и общайтесь с водителем напрямую.</div>
+        <div class="process-step__num">3</div>
+        <div class="process-step__title">Оформление</div>
+        <div class="process-step__desc">Быстрое оформление документов</div>
       </div>
       <div class="process-step" data-animate>
-        <div class="process-step__number">4</div>
-        <div class="process-step__title">Оплатите перевозку</div>
-        <div class="process-step__desc">После успешной доставки оплатите через платформу. Все документы сформируются автоматически.</div>
+        <div class="process-step__num">4</div>
+        <div class="process-step__title">Начните работать</div>
+        <div class="process-step__desc">Получите ключи и выезжайте</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- BENEFITS -->
-<section class="benefits">
-  <div class="container benefits-grid">
-    <div class="benefits__content" data-animate>
-      <h3>Оптимизируйте расходы и <span class="highlight">увеличьте прибыль</span></h3>
-      <p>Наша платформа помогает снижать издержки на логистику за счёт автоматизации процессов, умной маршрутизации и прозрачного контроля всех этапов.</p>
-      <ul class="benefits__list">
-        <li>Снижение затрат на топливо до 20%</li>
-        <li>Увеличение загрузки автопарка на 35%</li>
-        <li>Сокращение простоев и времени обработки</li>
-        <li>Прозрачная отчётность для бухгалтерии</li>
-      </ul>
-    </div>
-    <div class="benefits__image" data-animate>
-      <img src="photo_4.jpg" alt="Benefits illustration">
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
+<!-- FAQ -->
+<section class="faq">
   <div class="container">
     <div class="s-title" data-animate>
-      <h2 class="s-title__heading">Выберите свой тариф</h2>
-      <p class="s-title__sub">Гибкие планы для бизнеса любого размера</p>
+      <h2 class="s-title__heading">Частые вопросы</h2>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card" data-animate>
-        <div class="price-card__name">Старт</div>
-        <div class="price-card__price">2 990 <span class="currency">₽/мес</span></div>
-        <div class="price-card__desc">Для малого бизнеса</div>
-        <ul class="price-card__features">
-          <li>До 5 транспортных единиц</li>
-          <li>100 заявок в месяц</li>
-          <li>Отслеживание в реальном времени</li>
-          <li>Базовая аналитика</li>
-          <li>Поддержка в чате</li>
-        </ul>
-        <a href="#contacts" class="btn btn--outline" style="width: 100%; justify-content: center;">Выбрать</a>
+    <div class="faq-list">
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Какие документы нужны для аренды? <span class="icon">+</span></button>
+        <div class="faq-item__a">Паспорт, водительское удостоверение соответствующей категории. Для юридических лиц — документы организации.</div>
       </div>
-      <div class="price-card price-card--featured" data-animate>
-        <div class="price-card__name">Бизнес</div>
-        <div class="price-card__price">7 990 <span class="currency">₽/мес</span></div>
-        <div class="price-card__desc">Для средних компаний</div>
-        <ul class="price-card__features">
-          <li>До 20 транспортных единиц</li>
-          <li>500 заявок в месяц</li>
-          <li>Расширенная аналитика</li>
-          <li>Интеграция с 1С</li>
-          <li>Приоритетная поддержка</li>
-        </ul>
-        <a href="#contacts" class="btn btn--orange" style="width: 100%; justify-content: center;">Выбрать</a>
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Нужен ли залог? <span class="icon">+</span></button>
+        <div class="faq-item__a">Нет, мы работаем без залога. Оплата производится по факту аренды.</div>
       </div>
-      <div class="price-card" data-animate>
-        <div class="price-card__name">Корпорация</div>
-        <div class="price-card__price">От 15К <span class="currency">₽/мес</span></div>
-        <div class="price-card__desc">Для крупных компаний</div>
-        <ul class="price-card__features">
-          <li>Неограниченно транспортных единиц</li>
-          <li>Неограниченно заявок</li>
-          <li>Персональный менеджер</li>
-          <li>Кастомизация платформы</li>
-          <li>SLA 99.9%</li>
-        </ul>
-        <a href="#contacts" class="btn btn--outline" style="width: 100%; justify-content: center;">Связаться</a>
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Кто оплачивает топливо? <span class="icon">+</span></button>
+        <div class="faq-item__a">Топливо оплачивает арендатор. Автомобиль предоставляется с полным баком.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA SECTION -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-section__content" data-animate>
-      <h2>ЗАКАЖИТЕ ПЕРЕВОЗКУ<br>ПРЯМО СЕЙЧАС</h2>
-      <p>Оставьте заявку — и мы рассчитаем стоимость за 5 минут. Бесплатный выезд оценщика в Калининград. Страховка, GPS, опытные грузчики — всё включено.</p>
-      <a href="#contacts" class="btn btn--orange" style="padding: 16px 36px; font-size: 16px;">Начать бесплатно →</a>
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Что делать в случае поломки? <span class="icon">+</span></button>
+        <div class="faq-item__a">Немедленно свяжитесь с нами. Мы организуем техническую помощь или предоставим замену.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1560,16 +1386,15 @@
 <section class="contact-form" id="contacts">
   <div class="container">
     <div class="s-title" data-animate>
-      <h2 class="s-title__heading">Свяжитесь с нами</h2>
-      <p class="s-title__sub">Ответим на все вопросы и подберём тариф под ваши задачи</p>
+      <h2 class="s-title__heading">Оставьте заявку</h2>
+      <p class="s-title__sub">Мы свяжемся с вами в течение 10 минут</p>
     </div>
     <div class="form-wrapper" data-animate>
       <form class="js-form" data-bot-token="8434584674:AAGvxeQulQDyaESBQeu7rF5siC6HHs2McrE" data-chat-id="549333404">
         <input name="name" placeholder="Ваше имя" required>
-        <input name="company" placeholder="Название компании">
         <input name="phone" placeholder="телефон" required>
-        <textarea name="message" placeholder="Расскажите о вашей задаче"></textarea>
-        <button type="submit" class="btn btn--orange">Отправить заявку</button>
+        <textarea name="message" placeholder="Какой транспорт вас интересует?"></textarea>
+        <button type="submit" class="btn btn--yellow">Отправить заявку</button>
       </form>
     </div>
   </div>
@@ -1595,39 +1420,9 @@
 </section>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__logo">Владислав</div>
-        <div class="footer__desc">Профессиональные грузоперевозки в Калининград. Работаем с 2015 года.</div>
-      </div>
-      <div>
-        <div class="footer__title">Платформа</div>
-        <div class="footer__links">
-          <a href="#">Возможности</a>
-          <a href="#">Интеграции</a>
-          <a href="#">Безопасность</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__title">Компания</div>
-        <div class="footer__links">
-          <a href="#">О нас</a>
-          <a href="#">Блог</a>
-          <a href="#">Карьера</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__title">Контакты</div>
-        <div class="footer__links">
-          <a href="tel:+79000000000">+7 (900) 000-00-00</a>
-          <a href="mailto:info@info.ru">info@info.ru</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      © 2026 Владислав. Все права защищены.
-    </div>
+  <div class="container footer__inner">
+    <div class="footer__logo">Владислав</div>
+    <div class="footer__copy">© 2026. Все права защищены.</div>
   </div>
 </footer>
 
@@ -1648,7 +1443,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
 // Telegram form
@@ -1656,14 +1451,14 @@ for (const form of document.querySelectorAll('.js-form')) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(form);
-    const msg = ['🚀 Новая заявка с платформы', '', 'Имя: ' + (fd.get('name') || ''), 'Компания: ' + (fd.get('company') || ''), 'Телефон: ' + (fd.get('phone') || ''), 'Сообщение: ' + (fd.get('message') || '')].join('\n');
+    const msg = ['🚚 Новая заявка с сайта', '', 'Имя: ' + (fd.get('name') || ''), 'Телефон: ' + (fd.get('phone') || ''), 'Сообщение: ' + (fd.get('message') || '')].join('\n');
     try {
       const res = await fetch('https://api.telegram.org/bot' + form.dataset.botToken + '/sendMessage', {
         method: 'POST', headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ chat_id: 549333404, text: msg })
       });
       if (!res.ok) throw new Error();
-      (function(){var _n=document.createElement('div');_n.textContent='Заявка отправлена! Перезвоним в течение 15 минут.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#4caf50;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},3500)})();
+      (function(){var _n=document.createElement('div');_n.textContent='Заявка отправлена! Перезвоним в течение 10 минут.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#4caf50;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},3500)})();
       form.reset();
     } catch { (function(){var _n=document.createElement('div');_n.textContent='Не удалось отправить. Позвоните нам напрямую.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#f44336;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},4000)})(); }
   });
